@@ -6,8 +6,8 @@ A fork of [abc](https://github.com/beicause/call-graph)
 
 ## Features
 
-* Sumarize a youtube video
-* summariz any video ?
+* Summarize a youtube video
+* summarize any video ?
 * store records in a DB (sqlite)
 
 

@@ -17,17 +17,17 @@ def setup_logger(name):
 
     # get paramters from config file
     script_dir = os.path.dirname(os.path.realpath(__file__))
-    relative_config_path = os.path.join(script_dir, '..', 'conf', 'config.json')
+    relative_config_path = os.path.join(script_dir, '..', 'conf', 'system_config.json')
     config_path = os.path.abspath(relative_config_path)
     with open(config_path, 'r') as file:
         config = json.load(file)
 
     # get log parameters
     if os.name == 'nt': # 'nt' stands for Windows
-        LOG_FILE = config['win_log_file']
+        LOG_FILE = config['windows_log_file']
         LOG_LEVEL = config['log_level']
     elif os.name == 'posix': # 'posix' stands for Linux/Unix
-        LOG_FILE = config['lin_log_file']
+        LOG_FILE = config['linux_log_file']
         LOG_LEVEL = config['log_level']
     else:
         raise OSError("Unsupported operating system")

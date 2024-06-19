@@ -1,6 +1,9 @@
 import streamlit as st
 from phi.tools.youtube_tools import YouTubeTools
 from db_functions import save_video_info
+import logging
+from logger_config import setup_logger
+logger = setup_logger('ai-youtube')
 
 from assistant import get_chunk_summarizer, get_video_summarizer  
 
@@ -16,6 +19,7 @@ transcript = ""
 def main() -> None:
     # Get model
     llm_model = st.sidebar.selectbox("Select Model", options=LIST_MODELS)
+    logger.debug(f"Selected model: {llm_model}")
     # Set assistant_type in session state
     if "llm_model" not in st.session_state:
         st.session_state["llm_model"] = llm_model
@@ -36,6 +40,7 @@ def main() -> None:
 
     # Get video url
     video_url = st.sidebar.text_input(":video_camera: Video URL")
+    logger.debug(f"Video URL: {video_url}")
     # Button to generate report
     generate_report = st.sidebar.button("Generate Summary")
     if generate_report:
@@ -47,13 +52,15 @@ def main() -> None:
         youtube_tools = YouTubeTools()
         video_captions = None
         video_summarizer = get_video_summarizer(model=llm_model)
-
+        logger.debug(f"video_summarizer: {video_summarizer}")   
         with st.status("Parsing Video", expanded=False) as status:
             with st.container():
                 video_container = st.empty()
                 video_container.video(_url)
 
+            # Get video data from youtube
             video_data = youtube_tools.get_youtube_video_data(_url)
+
             with st.container():
                 video_data_container = st.empty()
                 video_data_container.json(video_data)
@@ -61,12 +68,14 @@ def main() -> None:
 
         with st.status("Reading Captions", expanded=False) as status:
             video_captions = youtube_tools.get_youtube_video_captions(_url)
+            logger.debug(f"Video captions: {video_captions[:300]}")
             with st.container():
                 video_captions_container = st.empty()
                 video_captions_container.write(video_captions)
             status.update(label="Captions processed", state="complete", expanded=False)
 
         if not video_captions:
+            logger.error("No video captions found.")
             st.write("Sorry could not parse video. Please try again or use a different video.")
             return
 
@@ -76,7 +85,7 @@ def main() -> None:
         for i in range(0, len(words), chunker_limit):
             num_chunks += 1
             chunks.append(" ".join(words[i : (i + chunker_limit)]))
-
+        logger.debug(f"Chunks: {chunks}")   
         if num_chunks > 1:
             chunk_summaries = []
             for i in range(num_chunks):
@@ -91,7 +100,7 @@ def main() -> None:
                         chunk_container.markdown(chunk_summary)
                     chunk_summaries.append(chunk_summary)
                     status.update(label=f"Chunk {i+1} summarized", state="complete", expanded=False)
-
+            logger.debug(f"Chunk summaries: {chunk_summaries}") 
             with st.spinner("Generating Summary"):
                 summary = ""
                 summary_container = st.empty()
@@ -117,10 +126,12 @@ def main() -> None:
                     summary += delta  # type: ignore
                     summary_container.markdown(summary)
     else:
-        st.write("Please provide a video URL or click on one of the trending videos.")
+        st.write("Please provide a video URL.")
 
     if video_data is not None:
-        save_video_info(video_url, video_data, video_captions, transcript, summary, llm_model)
+        save_video_info(video_url, video_data, video_captions, transcript, summary, llm_model)  
+    else:
+        logger.error("No video data found.")
 
     st.sidebar.markdown("---")
     if st.sidebar.button("Restart"):
