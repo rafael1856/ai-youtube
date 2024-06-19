@@ -1,4 +1,4 @@
-# AI Youtube summarizerer
+# AI Youtube summarizer
 
 ## Features
 
@@ -19,27 +19,19 @@
         pip install -r conf/p-requirements.txt
 
 ### How to run
-
+```
 run : ./start.sh 
 
 or run : 
 1. cd src
 2. streamlit run app.py
-
-
-## Upcoming Features
-
-* select multiple functions
-* change graph layout algorithm on the fly
-* dim test files
-* group by directory configuration
-
+```
 
 # Database
 It is a basic Sqlite database with one table about the videos summarized
 
 # folder structure
-
+```
 ├── bin
 │   └── setup.sh           # Shell script for setting up the environment.
 ├── conf
@@ -61,10 +53,18 @@ It is a basic Sqlite database with one table about the videos summarized
 │   ├── logger_config.py    # Configuration for the logging module.
 ├── start.sh                # Shell script to start the application.
 ├── TODO.md                 # List of tasks or features to implement.
+```
 
 ### For more information
 
 * [GitHub](https://github.com/rafael1856/ai-youtube)
 
+## Upcoming Features
+
+- [ ] Allow to change the AI prompt to summarize the transcript  
+- [ ] Add translate Summary to other languages  
+- [ ] Add chatbot to talk about the transcript  
+- [ ] Summarize local videos  
+- [ ] Make an Andrioid App  
 
 **Enjoy!**

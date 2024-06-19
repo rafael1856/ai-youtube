@@ -6,11 +6,7 @@ Project Description
 
 ### Todo
 
-- [ ] Add logger and error control  
-- [ ] Conda/mamba setup  
-- [ ] Config files  
 - [ ] Make program diagram  
-- [ ] Add command line option  
 - [ ] If the video is in the database, bring captions and summary from DB  
 - [ ] Add button to copy text in the boxes  
 - [ ] Allow to change the AI prompt to summarize the transcript  
@@ -21,11 +17,16 @@ Project Description
 
 ### In Progress
 
-- [ ] cleanup and standarize it  
-- [ ] write README  
+- [ ] Add command line option  
 
 ### Done ✓
 
+- [x] cleanup and standarize it  
 - [x] remove trending videos  
 - [x] add more models  
-- [x] store result in a DB
+- [x] store result in a DB  
+- [x] Add logger and error control  
+- [x] Conda/mamba setup  
+- [x] write README  
+- [x] Config files  
+
