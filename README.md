@@ -1,4 +1,4 @@
-# Ai Youtube summarizerer
+# Ai Youtube summarizer
 
 A fork of [abc](https://github.com/beicause/call-graph)
 
