@@ -17,8 +17,7 @@ with open(config_path, 'r') as file:
 # Extract database parameters
 db_name = config['db_name']
 linux_data_folder = config['linux_data_folder']
-# USER = config['db_user']
-# PASSWORD = config['db_password']
+
 
 DATABASE = linux_data_folder + db_name + '.db'
 

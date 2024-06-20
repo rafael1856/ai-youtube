@@ -3,9 +3,9 @@ from phi.tools.youtube_tools import YouTubeTools
 from db_functions import save_video_info
 import logging
 from logger_config import setup_logger
-logger = setup_logger('ai-youtube')
-
 from assistant import get_chunk_summarizer, get_video_summarizer  
+
+logger = setup_logger('ai-youtube')
 
 st.set_page_config(
     page_title="Youtube Video Summaries",

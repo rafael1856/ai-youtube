@@ -7,6 +7,7 @@
     "linux_data_folder": "/home/rafael/dev/projects/ai-youtube/data/",
     "linux_log_file": "/home/rafael/dev/projects/ai-youtube/logs/app.log",
     "schema": "ai-youtube",
-    "log_level": "DEBUG"
+    "log_level": "DEBUG",
+    "list_models": ["llama3", "phi3", "qwen2", "mistral"]
 }
 

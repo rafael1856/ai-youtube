@@ -1,4 +1,4 @@
-# AI Youtube summarizer
+# AI Youtube summarizer - Ollama models
 
 ## Features
 
