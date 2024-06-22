@@ -1,0 +1,192 @@
+Video URL: https://www.youtube.com/watch?v=aQmoog_s8HE
+
+Video Data: {'title': 'LLAMA-3 🦙: EASIET WAY To FINE-TUNE ON YOUR DATA 🙌', 'author_name': 'Prompt Engineering', 'author_url': 'https://www.youtube.com/@engineerprompt', 'type': 'video', 'height': 113, 'width': 200, 'version': '1.0', 'provider_name': 'YouTube', 'provider_url': 'https://www.youtube.com/', 'thumbnail_url': 'https://i.ytimg.com/vi/aQmoog_s8HE/hqdefault.jpg'}
+
+Captions: Lamma3 is an amazing open weights model,
+but you know what's better than Lamma3? Your own fine tuned version of Lamma3. If you want to fine tune Lamma3 on your
+own dataset, you have a number of options. For example, you can do
+that using AutoTrain. If you want more advanced
+features, you can use XLot. LammaFactory is another amazing option. And then you have Unsnod. Which promise up to 30 times faster
+training on their paid version? I'll be creating a series of videos
+on how to fine tune Lama 3 using this different tools, but for this video
+we are going to start with Unsloth. Okay, so we are going to be
+using their official notebook. It's probably one of the best out there
+because it covers everything end to end In a very user friendly way, so i'm going
+to just walk you through the notebook you can actually fine tune a lot of
+other models not just lama3 And we are going to look at some of the options. Okay. So first you will need to install all
+the required packages So you can run this on your local machine as well. It doesn't have to be in a google collab
+notebook But for that you will need to have an nvidia gpu I don't think
+it has support for apple silicon yet. So essentially here we're just
+cloning the github repo of unsloth right and then depending on The
+type of hardware you have it will install different types of packages. Okay Now next we need to just
+set up some training parameters. So we first need to import the fast
+language model class from unsloth then you need to set up your max sequence
+length Lumetri out of the box supports up to 8, 000 tokens, but the dataset that
+we're using is relatively short text. So we are just using. 2048 tokens. Now the data types, this will
+automatically detect if you set it to no, and we are going to be
+using four bit quantization now under the hood onslaught uses lo
+adopters to do efficient fine tuning. So there are two options. Either you can use the version
+that is available on slots hugging phase three, four. So here they have already loaded a few
+models including the latest llama 3 The gemma model the mistress 7b, right? These have already the lora
+adopters merged to the model. So if you are Using one of these
+you don't need to do anything else. But if you Let's say want to use one
+of the models from hugging face Then you need to provide your hugging face
+token id in case if it's a gated model So for example for the meta llama
+three version, you will actually need to accept the terms of of services
+and then you can just provide that. But if you use another Hugging Face
+model, you will actually need to add the LoRa adopters to that model. And I'll show you how to do that. Okay. So this section is only if you
+actually need to add your LoRa adopters as I said, the unstocked version. Already has the LoRa adopters
+merged with the model. So you don't really need to do this
+step but if you are using another model just you need to define These different
+parameters or uncomment this section of the code and it will work pretty Fine. Okay. Now since you are bringing in your
+own data for training, so you actually need to format your training set So
+for this example, they're using a clean version of the original alpaca
+data set So let's try to understand how this data set is structured. Okay. So the data set has
+three different columns. First one is the instruction. So this is basically the instruction
+going into the model, then the corresponding user input, and
+then the output from the model. So if you were to structure your
+data, it needs to be structured in exactly the same way. You need to have instructions,
+then another column for input, and then a column for output. Now in this case you will notice that in
+some of the cases the input is missing, which is fine, because the instruction
+just tells the model what exactly the output is supposed to be, right? So again, if you are formatting
+your own data set, Make sure to follow this structure. Okay, so the rest is very simple. First we need to download the data. So in this case we are downloading the
+data set from hugging face, and after that we need to map it to this format, right? So basically this is going to
+be a text string, which will take the instructions section. Of the data set and put it here. So there's going to be these
+special tokens For instruction then special tokens for input. So your input will follow these
+special tokens And then response from the model will follow the special
+tokens for response and this is exactly what we are doing in here. Okay. So again we are just creating a single
+column where we are transforming these three different columns into this format. And this is one of the crucial parts. Now, this is the standard alpaca dataset. There are some other
+prompt templates as well. For example, one of the more
+famous ones right now is chat ML that was introduced by OpenAI. So you can structure those
+in here if you want, right? But make sure to properly format
+your functions or your input examples because that's going to
+be fed into the LLM for training. All right. So once we do that next we're going to
+set up And SFT trainer, so supervised fine tuning trainer from HuggingFace. This is based in the, on the
+HuggingFace transformer library. So the SFT trainer is going
+to accept the model object. This is the unslot specific model object. Then the corresponding
+tokenizer, then the data set. And then we need to tell which
+column to use right so everything is structured in this text column That's
+why I need to specify which column to use then max sequence length, right
+some other parameters for Controlling how the training is going to be
+performed including what optimizer to use what is going to be the weight
+decay learning rate schedule, right so basically if you want to change your
+learnings, rate as the training evolves. This is actually a really good idea. You there are multiple options
+that you can use, right? And then you need to define
+your output directory where you're going to store the model. If you have seen some of my
+previous videos on training and fine tuning algorithms, you're probably
+familiar with most of these options. Now, one of the places where unsloth
+shines compared to the other packages for training is it's optimized memory
+usage as well as speed So in this case if you see the gpu that we are using is
+a t4 gpu Which is a free gpu available on google colab and This is just using about
+six gigabytes of VRAM whereas we have a total of 15 gigabytes of VRAM available. Now, this does goes up during
+training, but it's actually very well optimized if you look at it. All right. So our training object is set. So we need to just call the trainer train
+function on the trainer object, right? And here we can see that
+in the initial steps. The training loss starts
+decreasing, right? And it gradually decreases. There are some jumps here and there,
+but it has a pretty nice decrease. So that means that the model is learning. Now we could play around with the
+learning rate as well along with the batch size that will actually
+help us converge it easier. Another thing which I wanted to
+actually highlight was this thing. So you're not even running
+this for a whole epic. So we're not showing actually the data. The whole data set, we're just
+using a smaller subset of it. So we're just showing it
+a max of 60 steps, right? So you definitely, if you want the
+model to learn better, you want to run it at least for an epoch or two, or
+at least more steps in here, right? But for this quick example, we just
+want to see whether the training actually learns anything or not. Right and it kind of shows that there
+is some learning that is going on Okay, so let's look at some of the stats. So it took about eight minutes for
+training but we Ran it for just 60 steps if you want the model to learn for longer
+And I think actually learn from the data. You definitely want to run it for
+longer right now the peak memory that was reserved for this training
+run is about around 9 gigabytes out of the 15 And it only used about
+four gigabytes during training. So this is pretty impressive. Right? Okay. So let's say once you train the
+model, how would you do inference? So Unsloth offers a very simple
+interface for the for that. So you just need to use the fast
+language model class from Unsloth. And then you provide your the model that
+you just trained and tell it that you want to do inference on top of it, right? Then we'll need to tokenize our input. Now, since we were using the alpaca
+format, we also need to tokenize it using the alpaca format. So the first input is going to
+become instruction, The second input is going to be the actual input
+to the model, and then the model is supposed to generate responses. And we move everything to the GPU
+so that we can use the available GPU cores to generate a response, right? And then the rest is very simple
+to what you do with Hugging Face Transformer package. So you call the generate function
+provide the tokenized inputs. Then how many max number of sequence
+tokens that you want to generate, right? And whether you want to
+use cache or not, right? So for this input, continue
+the Fibonacci sequence. And we are providing one,
+one, two, three, five, eight. So here's what the
+model actually receives. Below is an instruction that describes a
+task paired with an input that provides for the context, write a response that
+appropriately completes the request. So this is basically the system
+instruction that is going in. Then here's the actual instruction,
+continue the Fibonacci sequence. Here's the input and
+here's the model response. Now to be frank the model without even
+training could generate the similar output to what we are providing in here, but this
+does shows that it is actually following. This alpaca format. So that means it is actually
+learning something during training. Now you do, you can do the same
+thing if you want to stream the text. But in that case, you will just, you
+need to use the text streamer class. And then if you run this, it will
+generate a streaming response. Okay. So once the model is trained, you
+definitely want to save it somewhere. So you have a couple of options. Either you can push it to a hugging face
+hub or you can save it locally In both these cases, it will just save the lora
+adopters not will merge It is it's not going to merge with the model, right? So if you were to push it to
+hub then you can use model. push to hub but in that case you need
+to provide your Hugging face token. Okay. So now if you want to load the lora
+adopters We just saved for inference then just set this to true and this
+will basically Load the lower lower adopters and we'll merge it with
+your model and then you can start using that for inference, right? So for example, here although like
+we're actually using the model that was just trained the load
+adopters are already merged to it. So here was another input. What is famous what is a
+famous tall tower in Paris? So again this is kind of the system
+instruction that goes in there. Here is the actual instruction that
+the user was just asking and after that the model generates the response which
+states One of the most famous tall towers in Paris is the Eiffel Tower And then
+it kind of goes into a lot of details of how this was constructed Right. Now, a really nice thing about
+unsloth is that you don't actually need unsloth to do inference. You can use a number of other options. So for example, once the model is
+trained, you can use the auto model for causal and then this is basically
+the perfect version to actually. do inference. So just like what you would
+do based on a base Hugging Face Transformer model, right? So you can use exactly the same classes,
+but according to the Unslot authors, they say that it's going to be much
+slower if you use this class rather than using the Unslot specific class. So you definitely want to
+make sure that you use. and slot for inference as well. But if you want to, let's say do inference
+using VLLM, it does have support for that, but you can save it in float 16 directly. And that way you will be able
+to use the model with VNLM. Similarly another amazing feature is that
+you can directly convert the model to GGUF for using with Llama CPP or Ollama. And it's way easier, right? So all you need to do is
+just save the tokenizer. And then when you're saving the model, you
+need to define the quantization method. Okay. So here, for example, the
+quantization method is 16 bits. If you don't define any quantization
+method, but you ask it to save it as a GGF file by default, it will
+be saving it in eight bit and you can also define a four bit, right? So this was a quick rundown of how
+you can train or fine tune the latest Lama three model on your own data
+set using the amazing unslot package. If you haven't seen it before, I'll
+highly recommend to actually check it out. It is one of the best option. If you are constrained on GPU, because
+in, even in this case, it was just using under 60 percent of the resources that
+are available on a T4 free instance. So this is pretty amazing implementation. They had to write the kernels
+themselves to optimize it. And I think more and more
+optimizations are coming in. Now, if you are, you know,
+Interested in no code platforms, I'll recommend to use Autotrain. I'll be actually making
+another video on that. That is another option if you don't want
+to Look at all the code and try to run each block individually, but it's it's
+great to see that on day zero not only We have different Packages that supports how
+to do inference on lemma 3, but you can also fine tune them I hope you found this
+video useful if you run into any issues or you have any questions Make sure to
+put them in the comment section below. Thanks for watching and as
+always See you in the next one
+
+Summary:
+
+Here is a summary of the YouTube video:
+
+The video discusses training a Llama-3 model on your own dataset using the Unslot package. The presenter shows how to train the model, fine-tune it, and use it for inference.
+
+The video highlights the following key points:
+
+1. Training loss starts decreasing as the model learns.
+2. Model can be trained using a smaller subset of the data set.
+3. Training takes around 8 minutes for 60 steps.
+4. Model uses approximately 4 GB of memory during training.
+5. To do inference, use the `FastLanguageModel` class from Unslot and provide the trained model.
+6. Tokenize input using the Alpaca format and move it to a GPU for faster processing.
+7. Use the `generate` function with Hugging Face Transformer package to generate responses.
+8. Model can be saved locally or pushed to a Hugging Face hub.
+9. Load adapters can be used to merge the model with pre-trained adapters.
+
+The video also mentions other options for doing inference, such as using the AutoModel for Causal class or converting the model to GGF format for use with Llama CPP or Ollama. The presenter concludes by recommending the Unslot package and Autotrain for no-code platforms.

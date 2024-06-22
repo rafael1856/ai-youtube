@@ -23,13 +23,13 @@ DATABASE = linux_data_folder + db_name + '.db'
 
 def create_connection():
 
-    logger.info("DATABASE = ", DATABASE)
+    logger.info(f"connecting to DATABASE = {DATABASE}")
 
     conn = None
     try:
         conn = sqlite3.connect(DATABASE)
     except Exception as e:
-        logger.error(f"Error: {e}")
+        logger.error(f"Error connecting to DB: {e}")
         return None
     
     return conn
@@ -71,7 +71,7 @@ def save_video_info(video_url, video_data, caption, transcript, summary, model):
     try:
         conn = create_connection()
     except Exception as e:
-        logger.error(f"Error: {e}")
+        logger.error(f"Error in save_video_info to the DB: {e}")
         return None
     
     query = '''INSERT INTO videos(video_title, video_url, author_url, author_name, caption, transcript, summary, model, timestamp) 

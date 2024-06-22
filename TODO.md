@@ -6,18 +6,22 @@ Project Description
 
 ### Todo
 
-- [ ] Make program diagram  
 - [ ] If the video is in the database, bring captions and summary from DB  
 - [ ] Add button to copy text in the boxes  
-- [ ] Allow to change the AI prompt to summarize the transcript  
+- [ ] Allow to change the AI prompt via command line parameter to summarize the transcript  
+- [ ] Phase 2 - make a docker container to distribute the app  
+- [ ] Phase 2 - add read at loud the summary  
 - [ ] Phase 2 - add translate Summary to other languages  
-- [ ] Phase 2 - add chatbot to talk about the transcript  
-- [ ] Phase 3 - Summarize local videos  
-- [ ] Phase 4 - Make a andrioid App  
+- [ ] Phase 3 - add chatbot to talk about the transcript  
+- [ ] Phase 3 - Summarize local videos (not only youtube)  
+- [ ] Phase 4 - Make an andrioid App  
 
 ### In Progress
 
-- [ ] Add command line option  
+- [ ] Make program diagram  
+- [ ] Update README  
+- [ ] Update Diagrams  
+- [ ] Update docs in "docs" folder  
 
 ### Done ✓
 
@@ -29,4 +33,6 @@ Project Description
 - [x] Conda/mamba setup  
 - [x] write README  
 - [x] Config files  
+- [x] Add save texts for command line  
+- [x] Add command line option  
 
