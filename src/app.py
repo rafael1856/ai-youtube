@@ -1,7 +1,7 @@
 import streamlit as st
 from phi.tools.youtube_tools import YouTubeTools
 from db_functions import save_video_info
-import logging
+# import logging
 from logger_config import setup_logger
 from assistant import get_chunk_summarizer, get_video_summarizer  
 

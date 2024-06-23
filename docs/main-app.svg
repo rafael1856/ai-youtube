@@ -1,0 +1,258 @@
+<?xml version="1.0" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="865pt" height="1034pt" viewBox="0.00 0.00 864.58 1034.00">
+<g id="graph0" class="graph" transform="translate(4,1030) scale(1)" data-name="G">
+
+<polygon fill="white" stroke="none" points="-4,4 -4,-1030 860.58,-1030 860.58,4 -4,4" style=""/>
+<!-- start -->
+<g id="node1" class="node" pointer-events="visible" data-name="start">
+
+<ellipse fill="none" stroke="black" cx="581.93" cy="-1008" rx="29.05" ry="18" style=""/>
+<text text-anchor="middle" x="581.93" y="-1003.8" font-family="Times,serif" font-size="14.00" style="">Start</text>
+</g>
+<!-- spinner -->
+<g id="node2" class="node" pointer-events="visible" data-name="spinner">
+
+<polygon fill="none" stroke="black" points="581.93,-953 336.56,-935 581.93,-917 827.3,-935 581.93,-953" style=""/>
+<text text-anchor="middle" x="581.93" y="-930.8" font-family="Times,serif" font-size="14.00" style="">Spinner 'Generating Summary' displayed?</text>
+</g>
+<!-- start&#45;&gt;spinner -->
+<g id="edge1" class="edge" data-name="start-&gt;spinner">
+
+<path fill="none" stroke="black" d="M581.93,-989.81C581.93,-982.23 581.93,-973.1 581.93,-964.54" style=""/>
+<polygon fill="black" stroke="black" points="585.43,-964.54 581.93,-954.54 578.43,-964.54 585.43,-964.54" style=""/>
+</g>
+<!-- init_summary -->
+<g id="node3" class="node" pointer-events="visible" data-name="init_summary">
+
+<polygon fill="none" stroke="black" points="596.73,-864.2 455.13,-864.2 455.13,-828.2 596.73,-828.2 596.73,-864.2" style=""/>
+<text text-anchor="middle" x="525.93" y="-842" font-family="Times,serif" font-size="14.00" style="">Initialize summary = ''</text>
+</g>
+<!-- spinner&#45;&gt;init_summary -->
+<g id="edge2" class="edge" data-name="spinner-&gt;init_summary">
+
+<path fill="none" stroke="black" d="M571.4,-917.67C563.47,-905.38 552.43,-888.27 543.21,-873.99" style=""/>
+<polygon fill="black" stroke="black" points="546.37,-872.42 538.01,-865.92 540.49,-876.22 546.37,-872.42" style=""/>
+<text text-anchor="middle" x="570.82" y="-886.4" font-family="Times,serif" font-size="14.00" style="">Yes</text>
+</g>
+<!-- check_url_provided -->
+<g id="node10" class="node" pointer-events="visible" data-name="check_url_provided">
+
+<polygon fill="none" stroke="black" points="543.93,-540.6 405.96,-522.6 543.93,-504.6 681.9,-522.6 543.93,-540.6" style=""/>
+<text text-anchor="middle" x="543.93" y="-518.4" font-family="Times,serif" font-size="14.00" style="">Video URL provided?</text>
+</g>
+<!-- spinner&#45;&gt;check_url_provided -->
+<g id="edge11" class="edge" data-name="spinner-&gt;check_url_provided">
+
+<path fill="none" stroke="black" d="M598.03,-917.97C612.64,-901.64 631.93,-874.85 631.93,-847.2 631.93,-847.2 631.93,-847.2 631.93,-610.4 631.93,-580.73 606.27,-557.79 582.66,-542.97" style=""/>
+<polygon fill="black" stroke="black" points="584.44,-539.96 574.05,-537.89 580.88,-545.98 584.44,-539.96" style=""/>
+<text text-anchor="middle" x="640.49" y="-724.6" font-family="Times,serif" font-size="14.00" style="">No</text>
+</g>
+<!-- empty_container -->
+<g id="node4" class="node" pointer-events="visible" data-name="empty_container">
+
+<polygon fill="none" stroke="black" points="589.14,-791.2 386.72,-791.2 386.72,-755.2 589.14,-755.2 589.14,-791.2" style=""/>
+<text text-anchor="middle" x="487.93" y="-769" font-family="Times,serif" font-size="14.00" style="">Create empty summary container</text>
+</g>
+<!-- init_summary&#45;&gt;empty_container -->
+<g id="edge3" class="edge" data-name="init_summary-&gt;empty_container">
+
+<path fill="none" stroke="black" d="M516.73,-828.01C512.44,-819.99 507.22,-810.25 502.42,-801.27" style=""/>
+<polygon fill="black" stroke="black" points="505.56,-799.73 497.76,-792.56 499.39,-803.03 505.56,-799.73" style=""/>
+</g>
+<!-- concat_video_info -->
+<g id="node5" class="node" pointer-events="visible" data-name="concat_video_info">
+
+<polygon fill="none" stroke="black" points="569.13,-702.4 244.73,-702.4 244.73,-666.4 569.13,-666.4 569.13,-702.4" style=""/>
+<text text-anchor="middle" x="406.93" y="-680.2" font-family="Times,serif" font-size="14.00" style="">Concatenate video URL, data, captions into video_info</text>
+</g>
+<!-- empty_container&#45;&gt;concat_video_info -->
+<g id="edge4" class="edge" data-name="empty_container-&gt;concat_video_info">
+
+<path fill="none" stroke="black" d="M471.93,-755.05C460.24,-742.53 444.2,-725.34 430.98,-711.17" style=""/>
+<polygon fill="black" stroke="black" points="433.59,-708.84 424.21,-703.92 428.47,-713.62 433.59,-708.84" style=""/>
+</g>
+<!-- loop_start -->
+<g id="node6" class="node" pointer-events="visible" data-name="loop_start">
+
+<polygon fill="none" stroke="black" points="301.93,-629.4 0.07,-611.4 301.93,-593.4 603.79,-611.4 301.93,-629.4" style=""/>
+<text text-anchor="middle" x="301.93" y="-607.2" font-family="Times,serif" font-size="14.00" style="">For each delta in video_summarizer.run(video_info)</text>
+</g>
+<!-- concat_video_info&#45;&gt;loop_start -->
+<g id="edge5" class="edge" data-name="concat_video_info-&gt;loop_start">
+
+<path fill="none" stroke="black" d="M381.25,-666.03C367.3,-656.6 349.9,-644.84 334.96,-634.73" style=""/>
+<polygon fill="black" stroke="black" points="337.05,-631.93 326.81,-629.22 333.13,-637.72 337.05,-631.93" style=""/>
+</g>
+<!-- append_summary -->
+<g id="node7" class="node" pointer-events="visible" data-name="append_summary">
+
+<polygon fill="none" stroke="black" points="311.46,-540.6 150.41,-540.6 150.41,-504.6 311.46,-504.6 311.46,-540.6" style=""/>
+<text text-anchor="middle" x="230.93" y="-518.4" font-family="Times,serif" font-size="14.00" style="">Append delta to summary</text>
+</g>
+<!-- loop_start&#45;&gt;append_summary -->
+<g id="edge6" class="edge" data-name="loop_start-&gt;append_summary">
+
+<path fill="none" stroke="black" d="M288.58,-594.07C278.33,-581.55 263.99,-564.01 252.17,-549.57" style=""/>
+<polygon fill="black" stroke="black" points="255.2,-547.74 246.16,-542.22 249.78,-552.17 255.2,-547.74" style=""/>
+<text text-anchor="middle" x="286.15" y="-562.8" font-family="Times,serif" font-size="14.00" style="">True</text>
+</g>
+<!-- loop_start&#45;&gt;check_url_provided -->
+<g id="edge10" class="edge" data-name="loop_start-&gt;check_url_provided">
+
+<path fill="none" stroke="black" d="M343.53,-595.48C386.39,-580.11 453.04,-556.2 497.56,-540.23" style=""/>
+<polygon fill="black" stroke="black" points="498.72,-543.53 506.95,-536.86 496.36,-536.95 498.72,-543.53" style=""/>
+<text text-anchor="middle" x="459.71" y="-562.8" font-family="Times,serif" font-size="14.00" style="">False</text>
+</g>
+<!-- update_container -->
+<g id="node8" class="node" pointer-events="visible" data-name="update_container">
+
+<polygon fill="none" stroke="black" points="323.54,-451.8 68.32,-451.8 68.32,-415.8 323.54,-415.8 323.54,-451.8" style=""/>
+<text text-anchor="middle" x="195.93" y="-429.6" font-family="Times,serif" font-size="14.00" style="">Update summary_container with summary</text>
+</g>
+<!-- append_summary&#45;&gt;update_container -->
+<g id="edge7" class="edge" data-name="append_summary-&gt;update_container">
+
+<path fill="none" stroke="black" d="M224.02,-504.45C219.21,-492.52 212.69,-476.35 207.14,-462.6" style=""/>
+<polygon fill="black" stroke="black" points="210.5,-461.58 203.52,-453.61 204.01,-464.2 210.5,-461.58" style=""/>
+</g>
+<!-- loop_end -->
+<g id="node9" class="node" pointer-events="visible" data-name="loop_end">
+
+<polygon fill="none" stroke="black" points="339.93,-343.8 259.75,-325.8 339.93,-307.8 420.11,-325.8 339.93,-343.8" style=""/>
+<text text-anchor="middle" x="339.93" y="-321.6" font-family="Times,serif" font-size="14.00" style="">End of loop</text>
+</g>
+<!-- update_container&#45;&gt;loop_end -->
+<g id="edge8" class="edge" data-name="update_container-&gt;loop_end">
+
+<path fill="none" stroke="black" d="M219.39,-415.53C244.94,-396.72 285.76,-366.68 312.71,-346.84" style=""/>
+<polygon fill="black" stroke="black" points="314.76,-349.68 320.73,-340.93 310.61,-344.04 314.76,-349.68" style=""/>
+</g>
+<!-- loop_end&#45;&gt;loop_start -->
+<g id="edge9" class="edge" data-name="loop_end-&gt;loop_start">
+
+<path fill="none" stroke="black" d="M339.69,-344.17C338.91,-380.83 335.52,-468.65 320.93,-540.6 318.1,-554.55 314.06,-569.82 310.42,-582.52" style=""/>
+<polygon fill="black" stroke="black" points="307.13,-581.31 307.68,-591.89 313.85,-583.28 307.13,-581.31" style=""/>
+<text text-anchor="middle" x="360.89" y="-474" font-family="Times,serif" font-size="14.00" style="">Next delta</text>
+</g>
+<!-- display_url_message -->
+<g id="node11" class="node" pointer-events="visible" data-name="display_url_message">
+
+<polygon fill="none" stroke="black" points="612.88,-397.8 382.99,-397.8 382.99,-361.8 612.88,-361.8 612.88,-397.8" style=""/>
+<text text-anchor="middle" x="497.93" y="-375.6" font-family="Times,serif" font-size="14.00" style="">Display 'Please provide a video URL.'</text>
+</g>
+<!-- check_url_provided&#45;&gt;display_url_message -->
+<g id="edge12" class="edge" data-name="check_url_provided-&gt;display_url_message">
+
+<path fill="none" stroke="black" d="M536.99,-505.14C531.21,-491.11 522.97,-470.33 516.93,-451.8 512.42,-437.96 508.15,-422.36 504.81,-409.31" style=""/>
+<polygon fill="black" stroke="black" points="508.22,-408.49 502.39,-399.64 501.43,-410.19 508.22,-408.49" style=""/>
+<text text-anchor="middle" x="538.49" y="-474" font-family="Times,serif" font-size="14.00" style="">No</text>
+</g>
+<!-- check_video_data -->
+<g id="node12" class="node" pointer-events="visible" data-name="check_video_data">
+
+<polygon fill="none" stroke="black" points="673.93,-451.8 525.99,-433.8 673.93,-415.8 821.87,-433.8 673.93,-451.8" style=""/>
+<text text-anchor="middle" x="673.93" y="-429.6" font-family="Times,serif" font-size="14.00" style="">video_data is not None?</text>
+</g>
+<!-- check_url_provided&#45;&gt;check_video_data -->
+<g id="edge13" class="edge" data-name="check_url_provided-&gt;check_video_data">
+
+<path fill="none" stroke="black" d="M565.69,-507.07C586.78,-492.99 618.99,-471.48 642.79,-455.59" style=""/>
+<polygon fill="black" stroke="black" points="644.47,-458.68 650.84,-450.22 640.58,-452.86 644.47,-458.68" style=""/>
+<text text-anchor="middle" x="630.82" y="-474" font-family="Times,serif" font-size="14.00" style="">Yes</text>
+</g>
+<!-- display_separator -->
+<g id="node15" class="node" pointer-events="visible" data-name="display_separator">
+
+<polygon fill="none" stroke="black" points="686.1,-270.8 513.76,-270.8 513.76,-234.8 686.1,-234.8 686.1,-270.8" style=""/>
+<text text-anchor="middle" x="599.93" y="-248.6" font-family="Times,serif" font-size="14.00" style="">Display separator in sidebar</text>
+</g>
+<!-- display_url_message&#45;&gt;display_separator -->
+<g id="edge14" class="edge" data-name="display_url_message-&gt;display_separator">
+
+<path fill="none" stroke="black" d="M499.08,-361.54C500.86,-346.17 505.39,-323.7 516.93,-307.8 525.86,-295.49 538.53,-285.24 551.29,-277.1" style=""/>
+<polygon fill="black" stroke="black" points="552.92,-280.2 559.7,-272.06 549.32,-274.2 552.92,-280.2" style=""/>
+</g>
+<!-- save_video_info -->
+<g id="node13" class="node" pointer-events="visible" data-name="save_video_info">
+
+<polygon fill="none" stroke="black" points="673.85,-343.8 526.02,-343.8 526.02,-307.8 673.85,-307.8 673.85,-343.8" style=""/>
+<text text-anchor="middle" x="599.93" y="-321.6" font-family="Times,serif" font-size="14.00" style="">Save video information</text>
+</g>
+<!-- check_video_data&#45;&gt;save_video_info -->
+<g id="edge15" class="edge" data-name="check_video_data-&gt;save_video_info">
+
+<path fill="none" stroke="black" d="M662.69,-416.7C650.95,-399.88 632.33,-373.21 618.42,-353.28" style=""/>
+<polygon fill="black" stroke="black" points="621.48,-351.55 612.88,-345.35 615.74,-355.55 621.48,-351.55" style=""/>
+<text text-anchor="middle" x="657.82" y="-375.6" font-family="Times,serif" font-size="14.00" style="">Yes</text>
+</g>
+<!-- log_error -->
+<g id="node14" class="node" pointer-events="visible" data-name="log_error">
+
+<polygon fill="none" stroke="black" points="856.72,-343.8 691.14,-343.8 691.14,-307.8 856.72,-307.8 856.72,-343.8" style=""/>
+<text text-anchor="middle" x="773.93" y="-321.6" font-family="Times,serif" font-size="14.00" style="">Log 'No video data found.'</text>
+</g>
+<!-- check_video_data&#45;&gt;log_error -->
+<g id="edge16" class="edge" data-name="check_video_data-&gt;log_error">
+
+<path fill="none" stroke="black" d="M688.69,-417.16C704.75,-400.13 730.7,-372.62 749.76,-352.43" style=""/>
+<polygon fill="black" stroke="black" points="752.09,-355.05 756.41,-345.37 747,-350.24 752.09,-355.05" style=""/>
+<text text-anchor="middle" x="746.49" y="-375.6" font-family="Times,serif" font-size="14.00" style="">No</text>
+</g>
+<!-- save_video_info&#45;&gt;display_separator -->
+<g id="edge17" class="edge" data-name="save_video_info-&gt;display_separator">
+
+<path fill="none" stroke="black" d="M599.93,-307.61C599.93,-300.03 599.93,-290.9 599.93,-282.34" style=""/>
+<polygon fill="black" stroke="black" points="603.43,-282.34 599.93,-272.34 596.43,-282.34 603.43,-282.34" style=""/>
+</g>
+<!-- log_error&#45;&gt;display_separator -->
+<g id="edge18" class="edge" data-name="log_error-&gt;display_separator">
+
+<path fill="none" stroke="black" d="M731.37,-307.43C707.77,-297.8 678.22,-285.75 653.12,-275.5" style=""/>
+<polygon fill="black" stroke="black" points="654.64,-272.34 644.06,-271.81 652,-278.83 654.64,-272.34" style=""/>
+</g>
+<!-- check_restart_clicked -->
+<g id="node16" class="node" pointer-events="visible" data-name="check_restart_clicked">
+
+<polygon fill="none" stroke="black" points="599.93,-197.8 458.4,-179.8 599.93,-161.8 741.46,-179.8 599.93,-197.8" style=""/>
+<text text-anchor="middle" x="599.93" y="-175.6" font-family="Times,serif" font-size="14.00" style="">Restart button clicked?</text>
+</g>
+<!-- display_separator&#45;&gt;check_restart_clicked -->
+<g id="edge19" class="edge" data-name="display_separator-&gt;check_restart_clicked">
+
+<path fill="none" stroke="black" d="M599.93,-234.61C599.93,-227.03 599.93,-217.9 599.93,-209.34" style=""/>
+<polygon fill="black" stroke="black" points="603.43,-209.34 599.93,-199.34 596.43,-209.34 603.43,-209.34" style=""/>
+</g>
+<!-- rerun_app -->
+<g id="node17" class="node" pointer-events="visible" data-name="rerun_app">
+
+<polygon fill="none" stroke="black" points="734.85,-109 619.02,-109 619.02,-73 734.85,-73 734.85,-109" style=""/>
+<text text-anchor="middle" x="676.93" y="-86.8" font-family="Times,serif" font-size="14.00" style="">Rerun application</text>
+</g>
+<!-- check_restart_clicked&#45;&gt;rerun_app -->
+<g id="edge20" class="edge" data-name="check_restart_clicked-&gt;rerun_app">
+
+<path fill="none" stroke="black" d="M613.7,-163.28C624.91,-150.65 640.97,-132.54 654.1,-117.74" style=""/>
+<polygon fill="black" stroke="black" points="656.41,-120.41 660.43,-110.6 651.17,-115.76 656.41,-120.41" style=""/>
+<text text-anchor="middle" x="655.82" y="-131.2" font-family="Times,serif" font-size="14.00" style="">Yes</text>
+</g>
+<!-- end -->
+<g id="node18" class="node" pointer-events="visible" data-name="end">
+
+<ellipse fill="none" stroke="black" cx="595.93" cy="-18" rx="27" ry="18" style=""/>
+<text text-anchor="middle" x="595.93" y="-13.8" font-family="Times,serif" font-size="14.00" style="">End</text>
+</g>
+<!-- check_restart_clicked&#45;&gt;end -->
+<g id="edge21" class="edge" data-name="check_restart_clicked-&gt;end">
+
+<path fill="none" stroke="black" d="M597.69,-161.63C595.97,-147.52 593.74,-127 592.82,-109 592.01,-93.02 592.36,-88.99 592.82,-73 593.06,-64.68 593.51,-55.64 593.99,-47.38" style=""/>
+<polygon fill="black" stroke="black" points="597.47,-47.72 594.61,-37.52 590.49,-47.29 597.47,-47.72" style=""/>
+<text text-anchor="middle" x="601.49" y="-86.8" font-family="Times,serif" font-size="14.00" style="">No</text>
+</g>
+<!-- rerun_app&#45;&gt;end -->
+<g id="edge22" class="edge" data-name="rerun_app-&gt;end">
+
+<path fill="none" stroke="black" d="M657.32,-72.81C646.2,-63.07 632.19,-50.79 620.36,-40.42" style=""/>
+<polygon fill="black" stroke="black" points="622.79,-37.89 612.97,-33.93 618.18,-43.16 622.79,-37.89" style=""/>
+</g>
+</g>
+</svg>

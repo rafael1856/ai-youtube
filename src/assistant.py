@@ -1,8 +1,8 @@
 from textwrap import dedent
 from phi.llm.ollama import Ollama
 from phi.assistant import Assistant
-import logging
 from logger_config import setup_logger
+
 logger = setup_logger('ai-youtube')
 
 def get_chunk_summarizer(
