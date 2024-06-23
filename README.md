@@ -61,7 +61,8 @@ run: ./cmd-start.sh
 ### Web interface
 It is using streamlit for web interface:
 
-![alt text] (/home/rafael/dev/projects/ai-youtube/docs/web-interface.png)
+
+![PNG Image](docs/web-interface.png)
 
 
 ### Command line interface
@@ -101,7 +102,21 @@ More details at the database.md documentation in docs folder.
 ├── TODO.md                 # List of tasks or features to implement.
 ```
 
-### For more information, check the repository:
+Here's a brief summary of each file in the src folder:
+
+1. `yt-cmd.py`: This is the main script for your command-line tool focused on processing YouTube videos. It generates summaries, interacts with users, and processes video data.
+2. `read_config.py`: This module reads configuration parameters from a JSON file (named `system_config.json`) and provides access to those settings throughout the application.
+3. `assistant.py`: This script likely contains logic for generating summaries, responding to user input, and interacting with users.
+4. `db_functions.py`: This module might contain functions or methods for connecting to a database, querying data, and performing other database-related tasks.
+5. `app.py`: This file is the main application file that ties everything together by importing and using functions from the other modules (e.g., `yt-cmd.py`, `assistant.py`) to process video data and generate summaries.
+
+
+
+### For more information, check the docs folder:
+
+* [Database](docs/database.md)
+* [General Logic](docs/general-logic.md)
+* [App logic](docs/main-app.md)
 
 * [GitHub](https://github.com/rafael1856/ai-youtube)
 
