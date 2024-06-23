@@ -8,7 +8,6 @@ Project Description
 
 - [ ] If the video is in the database, bring captions and summary from DB  
 - [ ] Add button to copy text in the boxes  
-- [ ] Allow to change the AI prompt via command line parameter to summarize the transcript  
 - [ ] Phase 2 - make a docker container to distribute the app  
 - [ ] Phase 2 - add read at loud the summary  
 - [ ] Phase 2 - add translate Summary to other languages  
@@ -18,13 +17,14 @@ Project Description
 
 ### In Progress
 
-- [ ] Make program diagram  
-- [ ] Update README  
-- [ ] Update Diagrams  
-- [ ] Update docs in "docs" folder  
+- [ ] Allow to change the AI prompt via command line parameter to summarize the transcript  
 
 ### Done ✓
 
+- [x] Update docs in "docs" folder  
+- [x] Update Diagrams  
+- [x] Update README  
+- [x] Make program diagram  
 - [x] cleanup and standarize it  
 - [x] remove trending videos  
 - [x] add more models  

@@ -1,7 +1,12 @@
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-*$py.class
+.env
+*.pyc
+__pycache__
+conversation_history/*.*
+*.log
+*.ipynb
+miltimodal_files/*.*
+data/*.*
+conf/system_config.json
 
 # C extensions
 *.so

@@ -1,3 +1,6 @@
+# This file (assistant.py) serves as a utility within a project focused on processing and summarizing YouTube video content. Its primary purpose is to define and configure two specialized assistants, get_chunk_summarizer and get_video_summarizer, which are designed to work with video data extracted from YouTube. These assistants leverage advanced natural language processing (NLP) capabilities to perform specific tasks related to video summarization.
+
+
 from textwrap import dedent
 from phi.llm.ollama import Ollama
 from phi.assistant import Assistant
@@ -9,6 +12,16 @@ def get_chunk_summarizer(
     model: str = "llama3",
     debug_mode: bool = True,
 ) -> Assistant:
+    """
+    Returns an Assistant object for chunk summarization of a YouTube video transcript.
+
+    Args:
+        model (str, optional): The model to be used for summarization. Defaults to "llama3".
+        debug_mode (bool, optional): Whether to enable debug mode. Defaults to True.
+
+    Returns:
+        Assistant: The Assistant object for chunk summarization.
+    """
     return Assistant(
         name="youtube_pre_processor_ollama",
         llm=Ollama(model=model),
@@ -49,6 +62,16 @@ def get_video_summarizer(
     model: str = "llama3",
     debug_mode: bool = True,
 ) -> Assistant:
+    """
+    Returns an Assistant object for summarization of a YouTube video.
+
+    Args:
+        model (str, optional): The model to be used for summarization. Defaults to "llama3".
+        debug_mode (bool, optional): Whether to enable debug mode. Defaults to True.
+
+    Returns:
+        Assistant: The Assistant object for video summarization.
+    """
     return Assistant(
         name="video_summarizer_ollama",
         llm=Ollama(model=model),

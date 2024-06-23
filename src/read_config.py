@@ -1,6 +1,5 @@
-# How to use 
-# in each module
-# from read_config import LIST_MODELS, DATA_FOLDER, DEFAULT_LOG
+# HThis module if for automate the configuration reading and later use in each module 
+# add in each module: from read_config import LIST_MODELS, DATA_FOLDER, LOG_LEVEL....
 
 import os 
 import json

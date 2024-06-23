@@ -15,6 +15,15 @@ chunker_limit = 4500
 
 
 def process_video(video_url):
+    """
+    Process a YouTube video by extracting video data, captions, and generating a summary.
+
+    Args:
+        video_url (str): The URL of the YouTube video to process.
+
+    Returns:
+        None
+    """
     transcript = ""
     video_data = ""
     video_captions = ""
@@ -74,14 +83,13 @@ def process_video(video_url):
             logger.debug(f"delta: {delta}")
             summary += delta  
 
-    # # save to database
-    # if video_data is not None:
-    #     save_video_info(video_url, video_data, video_captions, transcript, summary, llm_model)  
-    # else:
-    #     logger.error("No video data found.")
+    # save to database
+    if video_data is not None:
+        save_video_info(video_url, video_data, video_captions, transcript, summary, llm_model)  
+    else:
+        logger.error("No video data found.")
 
     # Save results to a text document, at the data folder
-    # with video_title name
     if isinstance(video_data, str):
         video_data = json.loads(video_data)
 
