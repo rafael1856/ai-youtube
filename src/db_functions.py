@@ -1,4 +1,5 @@
-# db_functions.py
+# This database is designed to support operations such as inserting new video entries, querying existing ones based on various criteria (e.g., author, video title, or timestamp), and potentially updating or deleting records. The use of a primary key (`id`) facilitates efficient retrieval and manipulation of specific video records.
+
 import os
 import json
 import sqlite3
@@ -22,7 +23,12 @@ linux_data_folder = config['linux_data_folder']
 DATABASE = linux_data_folder + db_name + '.db'
 
 def create_connection():
+    """
+    Creates a connection to the SQLite database.
 
+    Returns:
+        conn (sqlite3.Connection): The connection object to the database.
+    """
     logger.info(f"connecting to DATABASE = {DATABASE}")
 
     conn = None
@@ -36,11 +42,13 @@ def create_connection():
 
 
 def create_table():
+    """
+    Creates the 'videos' table in the database if it doesn't exist.
+    """
+    conn = create_connection()
+    cursor = conn.cursor()
    
-   conn = create_connection()
-   cursor = conn.cursor()
-   
-   cursor.execute('''CREATE TABLE IF NOT EXISTS videos (                    
+    cursor.execute('''CREATE TABLE IF NOT EXISTS videos (                    
                   id INTEGER PRIMARY KEY,                      
                   video_title TEXT NOT NULL, 
                   video_url TEXT NOT NULL, 
@@ -52,12 +60,25 @@ def create_table():
                   model TEXT NOT NULL,                          
                   timestamp TEXT NOT NULL);''' )
    
-   conn.commit()
-   cursor.close()
-   conn.close()
+    conn.commit()
+    cursor.close()
+    conn.close()
 
 def save_video_info(video_url, video_data, caption, transcript, summary, model):
-    
+    """
+    Saves video information to the database.
+
+    Args:
+        video_url (str): The URL of the video.
+        video_data (str or dict): The data of the video in JSON format or a dictionary.
+        caption (str): The caption of the video.
+        transcript (str): The transcript of the video.
+        summary (str): The summary of the video.
+        model (str): The model used for processing the video.
+
+    Returns:
+        None
+    """
     if isinstance(video_data, str):
         video_data = json.loads(video_data)
 
@@ -66,7 +87,7 @@ def save_video_info(video_url, video_data, caption, transcript, summary, model):
     author_name = video_data['author_name']
     timestamp = str(datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
 
-    logger.debug(f"Video title: {video_title}, URL: {video_url}, Author: {author_name}, Timestamp: {timestamp}\n\n")
+    # logger.debug(f"Video title: {video_title}, URL: {video_url}, Author: {author_name}, Timestamp: {timestamp}\n\n")
 
     try:
         conn = create_connection()
@@ -85,12 +106,14 @@ def save_video_info(video_url, video_data, caption, transcript, summary, model):
     conn.close()
 
 def main():
-     # Example video_data structure: [video_title, author_name, author_url, video_url, caption, transcript, summary, model]
-
-    #  save_video_info( "http://video.url", "video_data", "Sample Caption", "Sample Video transcript", "Sample Summary", "Sample Model")
+    # This art of the script can be used to create the database and the table, just once or for testing purposes.
 
     # create_connection()
     # create_table()
+
+    # Example for testing video_data structure: [video_title, author_name, author_url, video_url, caption, transcript, summary, model]
+    # save_video_info( "http://video.url", "video_data", "Sample Caption", "Sample Video transcript", "Sample Summary", "Sample Model")
+
     pass
 
 if __name__ == "__main__":

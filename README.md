@@ -13,7 +13,7 @@
 
 2. Setup conda (or mamba) enviroment running: bin/setup.sh 
         or running 
-        mamba create --name your_enviroment_name --file ../conf/c-requirements.txt -y
+        mamba create --name your_enviroment_name --file conf/c-requirements.txt -y
 
 3. Add non conda libraries running pip: 
         pip install -r conf/p-requirements.txt
@@ -57,6 +57,15 @@ For the command line interface
 ```
 run: ./cmd-start.sh
 ```
+
+
+### How to adjust the prompts
+
+There are two files in 'conf' folder with the basic prompts.
+These instructions can be modified to get different resutls from the models.
+It is also posible to modify the format output of the summary 
+in the section "add_to_prompt".
+
 
 ### Web interface
 It is using streamlit for web interface:

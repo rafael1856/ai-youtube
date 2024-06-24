@@ -1,11 +1,16 @@
 import streamlit as st
 from phi.tools.youtube_tools import YouTubeTools
 from db_functions import save_video_info
-# import logging
 from logger_config import setup_logger
-from assistant import get_chunk_summarizer, get_video_summarizer  
+from assistant import get_chunk_summarizer, get_video_summarizer
 
 logger = setup_logger('ai-youtube')
+
+
+import logging
+
+# print(logging.getLevelName(logger.getEffectiveLevel()))
+
 
 st.set_page_config(
     page_title="Youtube Video Summaries",
@@ -17,9 +22,19 @@ llm_model = "llama3"
 transcript = ""
 
 def main() -> None:
+    """
+    Main function to generate video summaries using Streamlit.
+
+    This function allows users to select a model, set the chunker limit,
+    provide a video URL, and generate a summary of the video.
+
+    Returns:
+        None
+    """
     # Get model
     llm_model = st.sidebar.selectbox("Select Model", options=LIST_MODELS)
     logger.debug(f"Selected model: {llm_model}")
+
     # Set assistant_type in session state
     if "llm_model" not in st.session_state:
         st.session_state["llm_model"] = llm_model
@@ -41,6 +56,7 @@ def main() -> None:
     # Get video url
     video_url = st.sidebar.text_input(":video_camera: Video URL")
     logger.debug(f"Video URL: {video_url}")
+
     # Button to generate report
     generate_report = st.sidebar.button("Generate Summary")
     if generate_report:
@@ -52,7 +68,7 @@ def main() -> None:
         youtube_tools = YouTubeTools()
         video_captions = None
         video_summarizer = get_video_summarizer(model=llm_model)
-        logger.debug(f"video_summarizer: {video_summarizer}")   
+        # logger.debug(f"video_summarizer: {video_summarizer}")   
         with st.status("Parsing Video", expanded=False) as status:
             with st.container():
                 video_container = st.empty()
@@ -68,7 +84,7 @@ def main() -> None:
 
         with st.status("Reading Captions", expanded=False) as status:
             video_captions = youtube_tools.get_youtube_video_captions(_url)
-            logger.debug(f"Video captions: {video_captions[:300]}")
+            # logger.debug(f"Video captions: {video_captions[:300]}")
             with st.container():
                 video_captions_container = st.empty()
                 video_captions_container.write(video_captions)
@@ -85,7 +101,7 @@ def main() -> None:
         for i in range(0, len(words), chunker_limit):
             num_chunks += 1
             chunks.append(" ".join(words[i : (i + chunker_limit)]))
-        logger.debug(f"Chunks: {chunks}")   
+        # logger.debug(f"Chunks: {chunks}")   
         if num_chunks > 1:
             chunk_summaries = []
             for i in range(num_chunks):
@@ -100,7 +116,7 @@ def main() -> None:
                         chunk_container.markdown(chunk_summary)
                     chunk_summaries.append(chunk_summary)
                     status.update(label=f"Chunk {i+1} summarized", state="complete", expanded=False)
-            logger.debug(f"Chunk summaries: {chunk_summaries}") 
+            # logger.debug(f"Chunk summaries: {chunk_summaries}") 
             with st.spinner("Generating Summary"):
                 summary = ""
                 summary_container = st.empty()

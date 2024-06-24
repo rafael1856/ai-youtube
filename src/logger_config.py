@@ -1,8 +1,10 @@
+# This is an implementation of looger for python scripts.
+
+
 ######### add to each python module #########
 # import logging
 # from logger_config import setup_logger
 # logger = setup_logger('your_name_app')
-
 
 #### Log messages at different levels ####
 # logger.debug('This is a debug message.')
@@ -59,6 +61,8 @@ def setup_logger(name):
         LOG_LEVEL = config['log_level']
     else:
         raise OSError("Unsupported operating system")
+
+    LOG_LEVEL = logging.ERROR
 
     logger = logging.getLogger(name)
     logger.setLevel(LOG_LEVEL)

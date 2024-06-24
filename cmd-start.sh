@@ -26,7 +26,7 @@ if [ "$env_name" != "$current_env" ]; then
 fi
 
 # clean old logs
-rm logs/*.log > /dev/null 2>&1
+rm logs/*.log > /dev/null
 
 # Check if a filename parameter is provided
 if [ -z "$1" ]; then

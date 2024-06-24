@@ -1,6 +1,5 @@
-# How to use 
-# in each module
-# from read_config import LIST_MODELS, DATA_FOLDER, DEFAULT_LOG
+# HThis module if for automate the configuration reading and later use in each module 
+# add in each module: from read_config import LIST_MODELS, DATA_FOLDER, LOG_LEVEL....
 
 import os 
 import json
@@ -28,5 +27,23 @@ DB_PASSWORD = config['db_password']
 SCHEMA = config['schema']
 LOG_LEVEL = config['log_level']
 LIST_MODELS = config['list_models']
+
+relative_prompt_path = os.path.join(script_dir, '..', 'conf', 'assistent-chunk-prompt.json')
+prompt_path = os.path.abspath(relative_prompt_path)
+with open(prompt_path, 'r') as file:
+    prompt = json.load(file)
+
+PROMPT_CHUNK_DESCRIPTION = prompt['description']
+PROMPT_CHUNK_INSTRUCTIONS = prompt['instructions']
+PROMPT_CHUNK_ADD_TO_PROMPT = prompt['add_to_prompt']
+
+relative_prompt_path = os.path.join(script_dir, '..', 'conf', 'assistent-summ-prompt.json')
+prompt_path = os.path.abspath(relative_prompt_path)
+with open(prompt_path, 'r') as file:
+    prompt = json.load(file)
+
+PROMPT_SUMM_DESCRIPTION = prompt['description']
+PROMPT_SUMM_INSTRUCTIONS = prompt['instructions']
+PROMPT_SUMM_ADD_TO_PROMPT = prompt['add_to_prompt']
 
 
