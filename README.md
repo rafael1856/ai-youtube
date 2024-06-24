@@ -58,6 +58,15 @@ For the command line interface
 run: ./cmd-start.sh
 ```
 
+
+### How to adjust the prompts
+
+There are two files in 'conf' folder with the basic prompts.
+These instructions can be modified to get different resutls from the models.
+It is also posible to modify the format output of the summary 
+in the section "add_to_prompt".
+
+
 ### Web interface
 It is using streamlit for web interface:
 

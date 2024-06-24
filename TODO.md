@@ -17,10 +17,10 @@ Project Description
 
 ### In Progress
 
-- [ ] Allow to change the AI prompt via command line parameter to summarize the transcript  
 
 ### Done ✓
 
+- [x] Allow to change the AI prompt to summarize the transcript  
 - [x] Update docs in "docs" folder  
 - [x] Update Diagrams  
 - [x] Update README  
@@ -34,5 +34,4 @@ Project Description
 - [x] write README  
 - [x] Config files  
 - [x] Add save texts for command line  
-- [x] Add command line option  
-
+- [x] Add command line option
