@@ -87,7 +87,7 @@ def save_video_info(video_url, video_data, caption, transcript, summary, model):
     author_name = video_data['author_name']
     timestamp = str(datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
 
-    logger.debug(f"Video title: {video_title}, URL: {video_url}, Author: {author_name}, Timestamp: {timestamp}\n\n")
+    # logger.debug(f"Video title: {video_title}, URL: {video_url}, Author: {author_name}, Timestamp: {timestamp}\n\n")
 
     try:
         conn = create_connection()

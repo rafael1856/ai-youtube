@@ -62,6 +62,8 @@ def setup_logger(name):
     else:
         raise OSError("Unsupported operating system")
 
+    LOG_LEVEL = logging.ERROR
+
     logger = logging.getLogger(name)
     logger.setLevel(LOG_LEVEL)
 

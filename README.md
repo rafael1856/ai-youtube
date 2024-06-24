@@ -13,7 +13,7 @@
 
 2. Setup conda (or mamba) enviroment running: bin/setup.sh 
         or running 
-        mamba create --name your_enviroment_name --file ../conf/c-requirements.txt -y
+        mamba create --name your_enviroment_name --file conf/c-requirements.txt -y
 
 3. Add non conda libraries running pip: 
         pip install -r conf/p-requirements.txt
