@@ -86,33 +86,13 @@ https://marketplace.visualstudio.com/items?itemName=cweijan.vscode-mysql-client2
 
 More details at the database.md documentation in docs folder.
 
+* [Database](docs/database.md)
+
 # folder structure
-```
-├── bin
-│   └── setup.sh           # Shell script for setting up the environment.
-├── conf
-│   ├── c-requirements.txt  # Conda environment requirements file.
-│   ├── p-requirements.txt  # Pip package requirements file.
-│   └── system_config.json  # Configuration settings for the application.
-├── data
-│   ├── ai-youtube.db       # SQLite database file for storing video summaries.
-│   └── youtube-list.txt    # Text file listing YouTube video URLs.
-├── docs                    # Documentation directory.
-├── LICENSE                 # License file for the project.
-├── logs
-│   └── app.log             # Log file for application activities.
-├── README.md               # This file, providing an overview and instructions.
-├── src
-│   ├── app.py              # Main application file.
-│   ├── assistant.py        # File for the AI assistant functionality.
-│   ├── db_functions.py     # Functions for interacting with the database.
-│   ├── logger_config.py    # Configuration for the logging module.
-├── web-start.sh            # Shell script to start the application.
-├── TODO.md                 # List of tasks or features to implement.
-```
 
-Here's a brief summary of each file in the src folder:
+* [Detailed files and folders](docs/folders_and_files.md)
 
+These are the main files for the application and are in src folder
 1. `yt-cmd.py`: This is the main script for your command-line tool focused on processing YouTube videos. It generates summaries, interacts with users, and processes video data.
 2. `read_config.py`: This module reads configuration parameters from a JSON file (named `system_config.json`) and provides access to those settings throughout the application.
 3. `assistant.py`: This script likely contains logic for generating summaries, responding to user input, and interacting with users.
@@ -120,13 +100,10 @@ Here's a brief summary of each file in the src folder:
 5. `app.py`: This file is the main application file that ties everything together by importing and using functions from the other modules (e.g., `yt-cmd.py`, `assistant.py`) to process video data and generate summaries.
 
 
-
 ### For more information, check the docs folder:
 
-* [Database](docs/database.md)
 * [General Logic](docs/general-logic.md)
 * [App logic](docs/main-app.md)
-
 * [GitHub](https://github.com/rafael1856/ai-youtube)
 
 ## Upcoming Features
